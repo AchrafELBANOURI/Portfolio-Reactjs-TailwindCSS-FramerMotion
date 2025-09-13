@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { SiFramer, SiFigma, SiReact, SiNodedotjs } from "react-icons/si";
-import { FaLemon } from "react-icons/fa";
+import { SiFramer, SiFigma, SiReact, SiSpringboot, SiPostgresql } from "react-icons/si";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -25,14 +24,14 @@ const stackItems = [
   },
   {
     id: 4,
-    name: "Node.js",
-    icon: <SiNodedotjs size={100} />,
+    name: "Spring Boot",
+    icon: <SiSpringboot size={100} />,
     color: "text-emerald-200",
   },
   {
     id: 5,
-    name: "Lemon Squeezy",
-    icon: <FaLemon size={100} />,
+    name: "PostgreSQL",
+    icon: <SiPostgresql size={100} />,
     color: "text-emerald-200",
   },
 ];
@@ -43,6 +42,32 @@ export const Stack = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
   });
+
+  // Mouse handlers for glass hover effect
+  const handleCardMouseMove = (e, card) => {
+    if (!card) return;
+    
+    // Get card position relative to viewport
+    const rect = card.getBoundingClientRect();
+    
+    // Calculate mouse position relative to card
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate percentage positions
+    const centerX = (x / rect.width) * 100;
+    const centerY = (y / rect.height) * 100;
+    
+    // Create dynamic gradient based on mouse position
+    card.style.background = `radial-gradient(circle at ${centerX}% ${centerY}%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 70%)`;
+  };
+
+  const handleCardMouseLeave = (card) => {
+    if (!card) return;
+    
+    // Reset when mouse leaves
+    card.style.background = 'rgba(255, 255, 255, 0.1)'; // Reset to original bg-white/10
+  };
 
   useEffect(() => {
     if (inView) {
@@ -78,7 +103,9 @@ export const Stack = () => {
                 },
               },
             }}
-            className="bg-white/10 flex flex-col items-center justify-center w-[200px] h-[200px] rounded-xl p-4 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+            className="bg-white/10 flex flex-col items-center justify-center w-[200px] h-[200px] rounded-xl p-4 shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-white/20 hover:border-emerald-300/50"
+            onMouseMove={(e) => handleCardMouseMove(e, e.currentTarget)}
+            onMouseLeave={(e) => handleCardMouseLeave(e.currentTarget)}
           >
             <div className={`mb-4 ${item.color}`}>{item.icon}</div>
             <p className="text-white/20 text-xl">{item.name}</p>
