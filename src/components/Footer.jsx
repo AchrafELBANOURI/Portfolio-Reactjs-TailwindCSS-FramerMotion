@@ -179,7 +179,7 @@ export const Footer = () => {
           variants={itemVariants}
         >
           <motion.h1 
-            className="block text-[8rem] md:text-[12rem] lg:text-[15rem] font-bold text-zinc-800 opacity-5"
+            className="block text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[15rem] font-bold text-zinc-800 opacity-5"
             variants={itemVariants}
             transition={{ duration: 0.3 }}
           >
