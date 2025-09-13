@@ -99,7 +99,7 @@ export const Footer = () => {
               >
                 <motion.div className="relative group" variants={socialIconVariants}>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/AchrafELBANOURI"
                     aria-label="GitHub"
                     className="text-gray-200 flex items-center justify-center w-10 h-10 rounded-full"
                   >
@@ -111,7 +111,7 @@ export const Footer = () => {
                 </motion.div>
                 <motion.div className="relative group" variants={socialIconVariants}>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/_.vchrvf._.10/"
                     aria-label="Instagram"
                     className="text-gray-200 flex items-center justify-center w-10 h-10 rounded-full"
                   >
@@ -135,7 +135,7 @@ export const Footer = () => {
                 </motion.div>
                 <motion.div className="relative group" variants={socialIconVariants}>
                   <a
-                    href="https://tiktok.com"
+                    href="https://www.tiktok.com/@achraf__10bn?_t=ZS-8zh0wC5gCag&_r=1"
                     aria-label="TikTok"
                     className="text-gray-200 flex items-center justify-center w-10 h-10 rounded-full"
                   >
