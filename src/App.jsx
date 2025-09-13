@@ -7,13 +7,13 @@ import { Stack } from "./pages/Stack";
 
 export default function App() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar/>
       <Hero/>
       <About/>
       <Portfolio/>
       <Stack/>
       <Footer/>
-    </>
+    </div>
   )
 }
