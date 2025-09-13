@@ -11,36 +11,62 @@ import { FiChevronDown } from "react-icons/fi";
 
 const projects = [
   {
-    title: "Ecommerce Digital Products",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    devstack: "MongoDB, Express, React, Node.js",
-    link: "#",
-    git: "#",
+    title: "INTERHUB PLATFORM",
+    desc: "A comprehensive platform connecting students with internship opportunities. Features include user profiles, company listings, application tracking, and real-time notifications.",
+    devstack: "Next js , Supabase , Framer Motion , Spring Boot",
+    link: "https://github.com/youssefoubrik/InternHub_backend",
+    git: "https://github.com/youssefoubrik/InternHub_backend",
     src: proj1,
     type: "fullstack",
   },
   {
-    title: "Interactive E-Learning Platform",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    devstack: "NextJs",
-    link: "#",
-    git: "#",
+    title: "ROOM BOOKING MANAGEMENT SYSTEM",
+    desc: "An intuitive room reservation system with calendar integration, allowing users to check availability, book meeting spaces, and manage reservations efficiently.",
+    devstack: "React js , TailwindCSS , Framer Motion , EJB , JEE",
+    link: "https://github.com/AchrafELBANOURI/Gestion-Reservation-Salles",
+    git: "https://github.com/AchrafELBANOURI/Gestion-Reservation-Salles",
     src: proj2,
-    type: "frontend",
+    type: "fullstack",
   },
   {
-    title: "Portfolio Website",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    devstack: "React, Tailwind",
-    link: "#",
-    git: "#",
+    title: "AGILE PROJECT MANAGEMENT SYSTEM",
+    desc: "A robust project management tool implementing Agile methodologies with sprint planning, backlog management, and performance tracking capabilities.",
+    devstack: "Spring Boot , Spring AOP , MapStruct , Log4j , JUnit , Mockito , Swagger UI",
+    link: "https://github.com/AchrafELBANOURI/AGILE-PROJECT-MANAGEMENT-SYSTEM",
+    git: "https://github.com/AchrafELBANOURI/AGILE-PROJECT-MANAGEMENT-SYSTEM",
     src: proj3,
-    type: "frontend",
+    type: "backend",
   },
 ];
 
 export const Portfolio = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
+
+  // Mouse handlers for hover effect (without 3D rotation)
+  const handleCardMouseMove = (e, card) => {
+    if (!card) return;
+    
+    // Get card position relative to viewport
+    const rect = card.getBoundingClientRect();
+    
+    // Calculate mouse position relative to card
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate percentage positions
+    const centerX = (x / rect.width) * 100;
+    const centerY = (y / rect.height) * 100;
+    
+    // Create dynamic gradient based on mouse position (no 3D rotation)
+    card.style.background = `radial-gradient(circle at ${centerX}% ${centerY}%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 70%)`;
+  };
+
+  const handleCardMouseLeave = (card) => {
+    if (!card) return;
+    
+    // Reset when mouse leaves
+    card.style.background = 'transparent';
+  };
 
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -61,7 +87,9 @@ export const Portfolio = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/5 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="bg-white/5 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 hover:border-emerald-300/50 border border-white/10"
+              onMouseMove={(e) => handleCardMouseMove(e, e.currentTarget)}
+              onMouseLeave={(e) => handleCardMouseLeave(e.currentTarget)}
             >
               <div
                 className="p-6 flex justify-between items-center cursor-pointer bg-black/20 border border-white/10"
