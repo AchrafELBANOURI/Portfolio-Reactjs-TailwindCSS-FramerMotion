@@ -179,7 +179,11 @@ export const Footer = () => {
           variants={itemVariants}
         >
           <motion.h1 
+<<<<<<< HEAD
             className="block text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[15rem] font-bold text-zinc-800 opacity-5"
+=======
+            className="block text-[6rem] md:text-[12rem] lg:text-[15rem] font-bold text-zinc-800 opacity-5"
+>>>>>>> d238940 (Create ReadMe File)
             variants={itemVariants}
             transition={{ duration: 0.3 }}
           >
