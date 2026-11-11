@@ -74,6 +74,15 @@ const projects = [
     src: projectImages.gestionSalles,
     type: "fullstack",
   },
+  {
+    title: "SNAPGRAM - SOCIAL MEDIA APPLICATION",
+    desc: "Snapgram is a modern social media application for sharing photos, discovering new content, and connecting with other users. It provides an intuitive, responsive experience for creating and managing posts, interacting with the community, and customizing user profiles.",
+    devstack: "React js , TailwindCSS , TypeScript , Appwrite",
+    link: "https://github.com/AchrafELBANOURI/SNAPGRAM",
+    git: "https://github.com/AchrafELBANOURI/SNAPGRAM",
+    src: projectImages.snapgram,
+    type: "fullstack",
+  },
 ];
 
 export const Portfolio = () => {

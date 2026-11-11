@@ -5,6 +5,7 @@ import agencyWebsite from "./assets/agencyWebsite.png";
 import aiPriceMonitor from "./assets/aiPriceMonitor.png";
 import gestionSalles from "./assets/RBMS.png";
 import subtrack from "./assets/subtrack.png";
+import snapgram from "./assets/snapgram.png";
 
 export const projectImages = {
   internhub,
@@ -14,4 +15,5 @@ export const projectImages = {
   appleBookstore,
   agencyWebsite,
   subtrack,
+  snapgram,
 };
