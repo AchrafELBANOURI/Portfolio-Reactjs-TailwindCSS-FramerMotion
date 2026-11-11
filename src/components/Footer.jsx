@@ -82,7 +82,7 @@ export const Footer = () => {
                 Phone
               </motion.p>
               <motion.a
-                href="+212720479471"
+                href="tel:+212720479471"
                 className="text-2xl font-semibold underline decoration-gray-400 decoration-2
                                     underline-offset-4 hover:decoration-gray-400 transition duration-300"
                 variants={itemVariants}
