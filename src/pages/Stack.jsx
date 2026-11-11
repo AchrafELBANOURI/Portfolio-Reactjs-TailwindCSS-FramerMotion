@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { SiFramer, SiFigma, SiReact, SiSpringboot, SiPostgresql } from "react-icons/si";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";

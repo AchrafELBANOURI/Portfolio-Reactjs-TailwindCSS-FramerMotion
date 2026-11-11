@@ -1,23 +1,69 @@
-import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import proj1 from "../assets/images/proj9.png";
-import proj2 from "../assets/images/proj11.png";
-import proj3 from "../assets/images/proj12.png";
 import { FaGithub } from "react-icons/fa";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { FiChevronDown } from "react-icons/fi";
 
+import { projectImages } from "../images";
 
 const projects = [
+  {
+    title: "SUBTRACK SUBSCRIPTION MANAGEMENT MOBILE APP",
+    desc: "SubTrack is a mobile subscription manager built with Expo and React Native. It lets users securely manage recurring subscriptions, calculate upcoming spending, review expense history, and receive renewal reminders.",
+    devstack:
+      "React Native · Expo · Spring Boot · PostgreSQL · Clerk · TanStack Query · Zustand · PostHog · Resend · EAS⁠",
+    link: "https://github.com/AchrafELBANOURI/SubTrack-Subscription-Management-Mobile-App",
+    git: "https://github.com/AchrafELBANOURI/SubTrack-Subscription-Management-Mobile-App",
+    src: projectImages.subtrack,
+    type: "mobile",
+  },
   {
     title: "INTERHUB PLATFORM",
     desc: "A comprehensive platform connecting students with internship opportunities. Features include user profiles, company listings, application tracking, and real-time notifications.",
     devstack: "Next js , Supabase , Framer Motion , Spring Boot",
-    link: "https://github.com/youssefoubrik/InternHub_backend",
-    git: "https://github.com/youssefoubrik/InternHub_backend",
-    src: proj1,
+    link: "https://github.com/youssefoubrik/InternHub-Front-End",
+    git: "https://github.com/youssefoubrik/InternHub-Front-End",
+    src: projectImages.internhub,
     type: "fullstack",
+  },
+  {
+    title: "AI PRICE MONITOR SYSTEM (MCP & N8N)",
+    desc: "Multi-agent architecture for product-price monitoring, using specialized agents for scraping, analysis, and notifications.",
+    devstack:
+      "Python , FastAPI , LangGraph , LangChain , Claude AI , N8N , SQLite , Telegram API",
+    link: "https://github.com/AchrafELBANOURI/AI-Price-Monitor-MCP-N8N",
+    git: "https://github.com/AchrafELBANOURI/AI-Price-Monitor-MCP-N8N",
+    src: projectImages.aiPriceMonitor,
+    type: "backend & ai",
+  },
+  {
+    title: "AGILE PROJECT MANAGEMENT SYSTEM",
+    desc: "A robust entreprise-grade backend system implementing Agile methodologies with sprint planning, backlog management, and performance tracking capabilities.",
+    devstack:
+      "Spring Boot , Spring AOP , MapStruct , Log4j , JUnit , Mockito , Swagger UI",
+    link: "https://github.com/youssefoubrik/Agile-Project-Management-System",
+    git: "https://github.com/youssefoubrik/Agile-Project-Management-System",
+    src: projectImages.agile,
+    type: "backend",
+  },
+  {
+    title: "CLONE OF APPLE BOOKSTORE",
+    desc: "A responsive bookstore experience inspired by Apple Books. Browse the home page, discover ebooks and audiobooks, and explore the About, Services, Contact, and Pricing pages.",
+    devstack:
+      "Next js , React 18 , TailwindCSS , FlowBite React , Framer Motion",
+    link: "https://github.com/AchrafELBANOURI/Clone_Apple_Bookstore",
+    git: "https://github.com/AchrafELBANOURI/Clone_Apple_Bookstore",
+    src: projectImages.appleBookstore,
+    type: "frontend",
+  },
+  {
+    title: "NEXCENT AGENCY WEBSITE",
+    desc: "A responsive agency landing page built with React, Tailwind CSS, and Framer Motion. It introduces the agency, highlights its services and products, shares blog content, and invites visitors to subscribe to a newsletter.",
+    devstack: "React 18 , Vite , TailwindCSS , FlowBite React , Framer Motion",
+    link: "https://github.com/AchrafELBANOURI/Agency-Website-Using-React-Tailwind-FramerMotion",
+    git: "https://github.com/AchrafELBANOURI/Agency-Website-Using-React-Tailwind-FramerMotion",
+    src: projectImages.agencyWebsite,
+    type: "frontend",
   },
   {
     title: "ROOM BOOKING MANAGEMENT SYSTEM",
@@ -25,17 +71,8 @@ const projects = [
     devstack: "React js , TailwindCSS , Framer Motion , EJB , JEE",
     link: "https://github.com/AchrafELBANOURI/Gestion-Reservation-Salles",
     git: "https://github.com/AchrafELBANOURI/Gestion-Reservation-Salles",
-    src: proj2,
+    src: projectImages.gestionSalles,
     type: "fullstack",
-  },
-  {
-    title: "AGILE PROJECT MANAGEMENT SYSTEM",
-    desc: "A robust project management tool implementing Agile methodologies with sprint planning, backlog management, and performance tracking capabilities.",
-    devstack: "Spring Boot , Spring AOP , MapStruct , Log4j , JUnit , Mockito , Swagger UI",
-    link: "https://github.com/AchrafELBANOURI/AGILE-PROJECT-MANAGEMENT-SYSTEM",
-    git: "https://github.com/AchrafELBANOURI/AGILE-PROJECT-MANAGEMENT-SYSTEM",
-    src: proj3,
-    type: "backend",
   },
 ];
 
@@ -45,27 +82,27 @@ export const Portfolio = () => {
   // Mouse handlers for hover effect (without 3D rotation)
   const handleCardMouseMove = (e, card) => {
     if (!card) return;
-    
+
     // Get card position relative to viewport
     const rect = card.getBoundingClientRect();
-    
+
     // Calculate mouse position relative to card
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     // Calculate percentage positions
     const centerX = (x / rect.width) * 100;
     const centerY = (y / rect.height) * 100;
-    
+
     // Create dynamic gradient based on mouse position (no 3D rotation)
     card.style.background = `radial-gradient(circle at ${centerX}% ${centerY}%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 70%)`;
   };
 
   const handleCardMouseLeave = (card) => {
     if (!card) return;
-    
+
     // Reset when mouse leaves
-    card.style.background = 'transparent';
+    card.style.background = "transparent";
   };
 
   const toggleExpand = (index) => {
@@ -76,7 +113,7 @@ export const Portfolio = () => {
     <div className="text-white py-24 md:py-64" id="portfolio">
       <div className="container mx-auto px-4">
         <h2 className="text-6xl font-bold text-center mb-16">
-          Selected <span className="text-emerald-300">Projects</span>
+          My <span className="text-emerald-300">Projects</span>
         </h2>
 
         <div className="space-y-8">
@@ -100,7 +137,7 @@ export const Portfolio = () => {
                   <span className="text-3xl font-light text-emerald-300">
                     0{index + 1}
                   </span>
-                  <FiChevronDown 
+                  <FiChevronDown
                     className={`w-6 h-6 transform transition-transform ${
                       expandedIndex === index ? "rotate-180" : ""
                     }`}
@@ -120,9 +157,11 @@ export const Portfolio = () => {
                       <img
                         src={project.src}
                         alt={project.title}
-                        className="w-full md:w-1/2 h-64 object-cover rounded-lg"
+                        loading="lazy"
+                        target="_blank"
+                        className="w-full md:w-1/2 h-full object-cover rounded-lg"
                       />
-                      <div className="flex-1">
+                      <div className="flex-1 pt-5">
                         <p className="text-white/70 mb-4">{project.desc}</p>
                         <p className="text-emerald-300 font-medium mb-2">
                           Stack: {project.devstack}
@@ -133,12 +172,16 @@ export const Portfolio = () => {
                         <div className="flex justify-start items-center space-x-4">
                           <a
                             href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-emerald-400 hover:text-blue-300 transition-colors"
                           >
                             <HiOutlineExternalLink />
                           </a>
                           <a
                             href={project.git}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-gray-400 hover:text-gray-300 transition-colors"
                           >
                             <FaGithub />
